@@ -143,11 +143,41 @@
         }
 
         /* Детали мероприятия */
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+        /* Для больших экранов - 4 карточки в ряд */
+        /* Вариант с 3+1 карточками */
+        @media (min-width: 768px) {
+            .details-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                /* Верхний ряд из 3 колонок */
+                gap: 40px;
+            }
+
+            /* Выделяем четвертую карточку и размещаем ее в центре нижнего ряда */
+            .details-grid .detail-card:nth-child(4) {
+                grid-column: 2 / 3;
+                /* Размещаем во второй колонке (по центру) */
+                margin-top: 40px;
+                /* Добавляем отступ сверху */
+                max-width: 350px;
+                /* Ограничиваем ширину, чтобы не была слишком широкой */
+                justify-self: center;
+                /* Центрируем по горизонтали */
+                width: 100%;
+            }
+        }
+
+        /* Для мобильных устройств - все карточки друг под другом */
+        @media (max-width: 767px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+                /* Одна колонка */
+            }
+
+            .details-grid .detail-card:nth-child(4) {
+                margin-top: 0;
+                /* Убираем отступ на мобильных */
+            }
         }
 
         .detail-card {
@@ -402,9 +432,16 @@
                 </div>
                 <div class="detail-card">
                     <i class="fas fa-map-marker-alt"></i>
-                    <h3>Локация</h3>
+                    <h3>ЗАГС</h3>
+                    <p><strong>Дворец бракосочетания</strong></p>
+                    <p> ул. Свердлова, 5</p>
+                    <p>г. Ярославль</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Ресторан</h3>
                     <p><strong>Отель Royal Hotel Spa & Wellness</strong></p>
-                    <p> Которосльная наб, 55</p>
+                    <p>Которосльная наб, 55</p>
                     <p>г. Ярославль</p>
                 </div>
                 <div class="detail-card">
