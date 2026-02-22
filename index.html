@@ -46,7 +46,7 @@
         .hero {
             height: 100vh;
             min-height: 600px;
-            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('./pic/pic1.avif') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('./pic/pic1.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -289,6 +289,10 @@
         }
 
         /* Лента с таймером */
+        .timer-section .container {
+            text-align: center;
+        }
+
         .timer-section {
             background: #2c3e50;
             color: white;
@@ -421,7 +425,7 @@
     <!-- Дата и место -->
     <section class="section" style="background-color: #f9f3ea;">
         <div class="container">
-            <h2 class="section-title">Дата и место</h2>
+            <h2 class="section-title">Дата и место свадьбы</h2>
             <div class="details-grid">
                 <div class="detail-card">
                     <i class="fas fa-calendar-alt"></i>
@@ -447,7 +451,7 @@
                 <div class="detail-card">
                     <i class="fas fa-glass-cheers"></i>
                     <h3>Программа</h3>
-                    <p>Свадебная церемония в Дворце бракосочетания</p>
+                    <p>Свадебная церемония во Дворце бракосочетания</p>
                     <p>Фуршет в ресторане</p>
                     <p>Банкет и танцы</p>
                 </div>
@@ -582,7 +586,7 @@
     <!-- Скрипт таймера и отправки формы -->
     <script>
         // Установите дату свадьбы (год, месяц-1, день, час, минута)
-        const weddingDate = new Date(2026, 4, 30, 14, 45, 0); // 30 мая 2026 16:00
+        const weddingDate = new Date(2026, 4, 30, 14, 45, 0); // 30 мая 2026 14:45
 
         function updateTimer() {
             const now = new Date();
