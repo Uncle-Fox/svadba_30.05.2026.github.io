@@ -42,6 +42,270 @@
             padding: 0 20px;
         }
 
+        /* ========== СТИЛИ ДЛЯ КОНВЕРТА ========== */
+        .envelope-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #f9f3ea 0%, #e8d9c5 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1.5s ease, transform 1.5s ease;
+            cursor: pointer;
+        }
+
+        .envelope-overlay.hidden {
+            opacity: 0;
+            transform: scale(1.5);
+            pointer-events: none;
+        }
+
+        .envelope-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            max-width: 90%;
+        }
+
+        /* Текст сверху */
+        .envelope__top-text {
+            font-size: 2rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: #2c3e50;
+            text-align: center;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .envelope {
+            position: relative;
+            width: 400px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .envelope:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .envelope__flap {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 210px solid transparent;
+            border-right: 210px solid transparent;
+            border-bottom: 80px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.6s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .envelope-overlay:not(.hidden) .envelope__flap {
+            animation: flapOpen 0.8s ease 2;
+        }
+
+        @keyframes flapOpen {
+            0% {
+                transform: translateX(-50%) rotateX(0);
+            }
+
+            50% {
+                transform: translateX(-50%) rotateX(120deg);
+            }
+
+            100% {
+                transform: translateX(-50%) rotateX(0);
+            }
+        }
+
+        .envelope__body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .envelope__image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+
+        .envelope__text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+        }
+
+        .envelope__names {
+            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* Подсказка снизу */
+        .envelope__click-hint {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            white-space: nowrap;
+            animation: bounce 2s ease-in-out infinite;
+            background: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid #d4af37;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .envelope__click-hint i {
+            color: #d4af37;
+            font-size: 1.3rem;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Адаптивность для конверта */
+        @media (max-width: 768px) {
+            .envelope {
+                width: 300px;
+            }
+
+            .envelope__flap {
+                border-left-width: 160px;
+                border-right-width: 160px;
+                border-bottom-width: 60px;
+                top: -30px;
+            }
+
+            .envelope__top-text {
+                font-size: 1.5rem;
+            }
+
+            .envelope__names {
+                font-size: 1.2rem;
+                padding: 6px 15px;
+            }
+
+            .envelope__click-hint {
+                font-size: 1rem;
+                padding: 10px 20px;
+                white-space: normal;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .envelope {
+                width: 250px;
+            }
+
+            .envelope__flap {
+                border-left-width: 135px;
+                border-right-width: 135px;
+                border-bottom-width: 50px;
+                top: -25px;
+            }
+
+            .envelope__top-text {
+                font-size: 1.3rem;
+            }
+
+            .envelope__click-hint {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+        }
+
+        /* Основной контент сайта (изначально скрыт) */
+        .main-content {
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+
+        .main-content.visible {
+            opacity: 1;
+        }
+
         /* Герой секция */
         .hero {
             height: 100vh;
@@ -143,40 +407,29 @@
         }
 
         /* Детали мероприятия */
-        /* Для больших экранов - 4 карточки в ряд */
-        /* Вариант с 3+1 карточками */
         @media (min-width: 768px) {
             .details-grid {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                /* Верхний ряд из 3 колонок */
                 gap: 40px;
             }
 
-            /* Выделяем четвертую карточку и размещаем ее в центре нижнего ряда */
             .details-grid .detail-card:nth-child(4) {
                 grid-column: 2 / 3;
-                /* Размещаем во второй колонке (по центру) */
                 margin-top: 40px;
-                /* Добавляем отступ сверху */
                 max-width: 350px;
-                /* Ограничиваем ширину, чтобы не была слишком широкой */
                 justify-self: center;
-                /* Центрируем по горизонтали */
                 width: 100%;
             }
         }
 
-        /* Для мобильных устройств - все карточки друг под другом */
         @media (max-width: 767px) {
             .details-grid {
                 grid-template-columns: 1fr;
-                /* Одна колонка */
             }
 
             .details-grid .detail-card:nth-child(4) {
                 margin-top: 0;
-                /* Убираем отступ на мобильных */
             }
         }
 
@@ -394,196 +647,273 @@
                 flex-direction: column;
                 gap: 10px;
             }
+
+            .envelope {
+                width: 250px;
+                height: 180px;
+            }
+
+            .envelope__flap {
+                border-left-width: 125px;
+                border-right-width: 125px;
+                border-bottom-width: 60px;
+                top: -50px;
+            }
+
+            .envelope__text {
+                font-size: 1rem;
+            }
+
+            .envelope__heart {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .envelope {
+                width: 200px;
+                height: 150px;
+            }
+
+            .envelope__flap {
+                border-left-width: 100px;
+                border-right-width: 100px;
+                border-bottom-width: 50px;
+                top: -40px;
+            }
+
+            .envelope__click-hint {
+                font-size: 0.8rem;
+                bottom: -30px;
+            }
         }
     </style>
 </head>
 
 <body>
-
-    <!-- Главный экран -->
-    <section class="hero">
-        <div class="hero-content">
-            <p class="names">Анастасия & Константин</p>
-            <h1>Приглашаем на свадьбу</h1>
-            <p class="date">30 мая 2026 • 14:45</p>
-            <a href="#rsvp" class="btn">Подтвердить присутствие</a>
-        </div>
-    </section>
-
-    <!-- Короткая история -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Дорогие гости!</h2>
-            <div class="story-content">
-                <p>Мы решили объединить свои судьбы и будем счастливы разделить этот день с самыми близкими людьми. </p>
-                <p style="margin-top: 20px;">Приглашаем вас разделить с нами радость и стать частью этого особенного
-                    события.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Дата и место -->
-    <section class="section" style="background-color: #f9f3ea;">
-        <div class="container">
-            <h2 class="section-title">Дата и место свадьбы</h2>
-            <div class="details-grid">
-                <div class="detail-card">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3>Дата</h3>
-                    <p><strong>30 мая 2026</strong></p>
-                    <p>Сбор гостей в 14:30</p>
-                    <p>Церемония в 14:45</p>
-                </div>
-                <div class="detail-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>ЗАГС</h3>
-                    <p><strong>Дворец бракосочетания</strong></p>
-                    <p> ул. Свердлова, 5</p>
-                    <p>г. Ярославль</p>
-                </div>
-                <div class="detail-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Ресторан</h3>
-                    <p><strong>Отель Royal Hotel Spa & Wellness</strong></p>
-                    <p>Которосльная наб, 55</p>
-                    <p>г. Ярославль</p>
-                </div>
-                <div class="detail-card">
-                    <i class="fas fa-glass-cheers"></i>
-                    <h3>Программа</h3>
-                    <p>Свадебная церемония во Дворце бракосочетания</p>
-                    <p>Фуршет в ресторане</p>
-                    <p>Банкет и танцы</p>
-                </div>
+    <!-- КОНВЕРТ (поверх всего сайта) -->
+    <div class="envelope-overlay" id="envelopeOverlay">
+        <div class="envelope-container">
+            <!-- ТЕКСТ СВЕРХУ -->
+            <div class="envelope__top-text">
+                Вам пришло приглашение.<br>Открыть его?
             </div>
 
-            <!-- Карта -->
-            <div class="map-container">
-                <!-- Вставьте сюда ваш скопированный код с Яндекс.Карт -->
-                <iframe src="https://api-maps.yandex.ru/frame/v1/-/CPapbT6g" width="100%" height="100%" frameborder="0"
-                    style="border:0; border-radius: 20px;" allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </section>
+            <!-- КОНВЕРТ -->
+            <div class="envelope">
+                <div class="envelope__flap"></div>
+                <div class="envelope__body">
+                    <!-- ВАША КАРТИНКА КОНВЕРТА -->
+                    <img src="./pic/envelope.png" alt="Конверт" class="envelope__image">
 
-    <!-- Dress code и пожелания -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Дресс-код</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px;">Поддержите цветовую гамму нашей свадьбы</p>
-            <div class="dress-code">
-                <div class="dress-code-item">
-                    <i class="fas fa-tshirt"></i>
-                    <p>Основные цвета:</p>
-                    <p><strong>Слоновая кость, шампань, пудра</strong></p>
-                </div>
-                <div class="dress-code-item">
-                    <i class="fas fa-shoe-prints"></i>
-                    <p>Обувь без каблука для дам</p>
-                    <p>(будет много танцев)</p>
-                </div>
-            </div>
-            <p style="margin-top: 40px; font-style: italic;">Пожалуйста, избегайте белого цвета (кроме невесты)</p>
-        </div>
-    </section>
-
-    <!-- Таймер -->
-    <section class="timer-section">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; color: white;">До свадьбы осталось:</h2>
-            <div class="timer" id="timer">
-                <div class="timer-item">
-                    <span id="days">00</span>
-                    <p>Дней</p>
-                </div>
-                <div class="timer-item">
-                    <span id="hours">00</span>
-                    <p>Часов</p>
-                </div>
-                <div class="timer-item">
-                    <span id="minutes">00</span>
-                    <p>Минут</p>
-                </div>
-                <div class="timer-item">
-                    <span id="seconds">00</span>
-                    <p>Секунд</p>
+                    <!-- ТЕКСТ ПОВЕРХ КАРТИНКИ (Имена) 
+                    <div class="envelope__text">
+                        <div class="envelope__names">
+                            Анастасия & Константин -->
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Форма подтверждения (RSVP) -->
-    <section class="section rsvp-section" id="rsvp">
-        <div class="container">
-            <h2 class="section-title">Подтвердите присутствие</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 20px;">Пожалуйста, ответьте до 1 мая 2026</p>
-            <div class="rsvp-form">
-                <form id="weddingForm">
-                    <div class="form-group">
-                        <label for="name">Ваше имя и фамилия *</label>
-                        <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+    <!-- ПОДСКАЗКА СНИЗУ -->
+    <div class="envelope__click-hint">
+        <i class="fas fa-mouse-pointer"></i> нажмите на конверт, чтобы открыть его
+    </div>
+    </div>
+    </div>
+
+    <!-- Основной контент сайта -->
+    <div class="main-content" id="mainContent">
+        <!-- Главный экран -->
+        <section class="hero">
+            <div class="hero-content">
+                <p class="names">Анастасия & Константин</p>
+                <h1>Приглашаем на свадьбу</h1>
+                <p class="date">30 мая 2026 • 14:45</p>
+                <a href="#rsvp" class="btn">Подтвердить присутствие</a>
+            </div>
+        </section>
+
+        <!-- Короткая история -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Дорогие гости!</h2>
+                <div class="story-content">
+                    <p>Мы решили объединить свои судьбы и будем счастливы разделить этот день с самыми близкими
+                        людьми.
+                    </p>
+                    <p style="margin-top: 20px;">Приглашаем вас разделить с нами радость и стать частью этого
+                        особенного
+                        события.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Дата и место -->
+        <section class="section" style="background-color: #f9f3ea;">
+            <div class="container">
+                <h2 class="section-title">Дата и место свадьбы</h2>
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Дата</h3>
+                        <p><strong>30 мая 2026</strong></p>
+                        <p>Сбор гостей в 14:30</p>
+                        <p>Церемония в 14:45</p>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" placeholder="ivan@example.com" required>
+                    <div class="detail-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>ЗАГС</h3>
+                        <p><strong>Дворец бракосочетания</strong></p>
+                        <p> ул. Свердлова, 5</p>
+                        <p>г. Ярославль</p>
                     </div>
-                    <div class="form-group">
-                        <label>Будете ли вы?</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="attendance" value="yes" checked> С удовольствием
-                                приду</label>
-                            <label><input type="radio" name="attendance" value="no"> К сожалению, не смогу</label>
+                    <div class="detail-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Ресторан</h3>
+                        <p><strong>Отель Royal Hotel Spa & Wellness</strong></p>
+                        <p>Которосльная наб, 55</p>
+                        <p>г. Ярославль</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-glass-cheers"></i>
+                        <h3>Программа</h3>
+                        <p>Свадебная церемония во Дворце бракосочетания</p>
+                        <p>Фуршет в ресторане</p>
+                        <p>Банкет и танцы</p>
+                    </div>
+                </div>
+
+                <!-- Карта -->
+                <div class="map-container">
+                    <iframe src="https://api-maps.yandex.ru/frame/v1/-/CPapbT6g" width="100%" height="100%"
+                        frameborder="0" style="border:0; border-radius: 20px;" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dress code и пожелания -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Дресс-код</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px;">Поддержите цветовую гамму нашей свадьбы</p>
+                <div class="dress-code">
+                    <div class="dress-code-item">
+                        <i class="fas fa-tshirt"></i>
+                        <p>Основные цвета:</p>
+                        <p><strong>Слоновая кость, шампань, пудра</strong></p>
+                    </div>
+                    <div class="dress-code-item">
+                        <i class="fas fa-shoe-prints"></i>
+                        <p>Обувь без каблука для дам</p>
+                        <p>(будет много танцев)</p>
+                    </div>
+                </div>
+                <p style="margin-top: 40px; font-style: italic;">Пожалуйста, избегайте белого цвета (кроме невесты)
+                </p>
+            </div>
+        </section>
+
+        <!-- Таймер -->
+        <section class="timer-section">
+            <div class="container">
+                <h2 style="font-size: 2.5rem; color: white;">До свадьбы осталось:</h2>
+                <div class="timer" id="timer">
+                    <div class="timer-item">
+                        <span id="days">00</span>
+                        <p>Дней</p>
+                    </div>
+                    <div class="timer-item">
+                        <span id="hours">00</span>
+                        <p>Часов</p>
+                    </div>
+                    <div class="timer-item">
+                        <span id="minutes">00</span>
+                        <p>Минут</p>
+                    </div>
+                    <div class="timer-item">
+                        <span id="seconds">00</span>
+                        <p>Секунд</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма подтверждения (RSVP) -->
+        <section class="section rsvp-section" id="rsvp">
+            <div class="container">
+                <h2 class="section-title">Подтвердите присутствие</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 20px;">Пожалуйста, ответьте до 1 мая 2026</p>
+                <div class="rsvp-form">
+                    <form id="weddingForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя и фамилия *</label>
+                            <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="guests">Количество гостей (включая вас)</label>
-                        <select id="guests" name="guests">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="diet">Особые пожелания (аллергии, диета)</label>
-                        <textarea id="diet" name="diet" rows="3"
-                            placeholder="Напишите, если у вас есть особенности питания"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-submit">Отправить</button>
-                </form>
-                <div id="formMessage" style="margin-top: 20px; font-weight: 500; color: #d4af37; display: none;">
-                    Спасибо! Мы получили ваш ответ.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Подарки (без навязчивости) -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Подарки</h2>
-            <p style="font-size: 1.2rem;">Для нас главное — ваше присутствие, но если вы хотите сделать подарок, мы
-                будем рады помощи в создании нашего семейного уюта.</p>
-            <div style="margin-top: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                <div style="background: #f9f3ea; padding: 20px 30px; border-radius: 50px;">
-                    <i class="fas fa-home" style="color: #d4af37; margin-right: 10px;"></i>
-                    <span>Бытовая техника</span>
-                </div>
-                <div style="background: #f9f3ea; padding: 20px 30px; border-radius: 50px;">
-                    <i class="fas fa-coins" style="color: #d4af37; margin-right: 10px;"></i>
-                    <span>Денежный конверт</span>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="ivan@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Будете ли вы?</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="attendance" value="yes" checked> С удовольствием
+                                    приду</label>
+                                <label><input type="radio" name="attendance" value="no"> К сожалению, не
+                                    смогу</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Количество гостей (включая вас)</label>
+                            <select id="guests" name="guests">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="diet">Особые пожелания (аллергии, диета)</label>
+                            <textarea id="diet" name="diet" rows="3"
+                                placeholder="Напишите, если у вас есть особенности питания"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Отправить</button>
+                    </form>
+                    <div id="formMessage" style="margin-top: 20px; font-weight: 500; color: #d4af37; display: none;">
+                        Спасибо! Мы получили ваш ответ.</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Подвал -->
-    <footer>
-        <div class="container">
-            <p><i class="fas fa-heart"></i> Анастасия & Константин <i class="fas fa-heart"></i></p>
-            <p style="margin-top: 10px; font-size: 0.9rem;">С нетерпением ждем встречи!</p>
-        </div>
-    </footer>
+        <!-- Подарки -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Подарки</h2>
+                <p style="font-size: 1.2rem;">Для нас главное — ваше присутствие, но если вы хотите сделать подарок,
+                    мы
+                    будем рады помощи в создании нашего семейного уюта.</p>
+                <div style="margin-top: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                    <div style="background: #f9f3ea; padding: 20px 30px; border-radius: 50px;">
+                        <i class="fas fa-home" style="color: #d4af37; margin-right: 10px;"></i>
+                        <span>Бытовая техника</span>
+                    </div>
+                    <div style="background: #f9f3ea; padding: 20px 30px; border-radius: 50px;">
+                        <i class="fas fa-coins" style="color: #d4af37; margin-right: 10px;"></i>
+                        <span>Денежный конверт</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Скрипт таймера и отправки формы -->
+        <!-- Подвал -->
+        <footer>
+            <div class="container">
+                <p><i class="fas fa-heart"></i> Анастасия & Константин <i class="fas fa-heart"></i></p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">С нетерпением ждем встречи!</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Скрипты -->
     <script>
         // Установите дату свадьбы (год, месяц-1, день, час, минута)
         const weddingDate = new Date(2026, 4, 30, 14, 45, 0); // 30 мая 2026 14:45
@@ -611,22 +941,17 @@
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        // Обработка формы (имитация отправки без перезагрузки)
+        // Обработка формы
         document.getElementById('weddingForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            // Здесь можно добавить реальную отправку данных на сервер через fetch
-            // Сейчас просто показываем сообщение и очищаем форму
             document.getElementById('formMessage').style.display = 'block';
             this.reset();
-            // Скрыть сообщение через 5 секунд
             setTimeout(() => {
                 document.getElementById('formMessage').style.display = 'none';
             }, 5000);
         });
-    </script>
 
-    <!-- Плавный скролл до якоря -->
-    <script>
+        // Плавный скролл
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -636,7 +961,54 @@
                 }
             });
         });
+
+        // Логика для конверта
+        document.addEventListener('DOMContentLoaded', function () {
+            const envelopeOverlay = document.getElementById('envelopeOverlay');
+            const mainContent = document.getElementById('mainContent');
+
+            // Показываем основной контент при клике на конверт
+            envelopeOverlay.addEventListener('click', function () {
+                // Скрываем конверт
+                envelopeOverlay.classList.add('hidden');
+                // Показываем основной контент
+                mainContent.classList.add('visible');
+
+                // Через 1.5 секунды убираем конверт из DOM (опционально)
+                setTimeout(() => {
+                    envelopeOverlay.style.display = 'none';
+                }, 1500);
+            });
+
+            // Маленькая хитрость: если гость долго не кликает, можно показать подсказку
+            setTimeout(() => {
+                if (!envelopeOverlay.classList.contains('hidden')) {
+                    envelopeOverlay.style.animation = 'pulse 1s ease';
+                }
+            }, 3000);
+        });
     </script>
+
+    <style>
+        /* Дополнительные стили для анимации */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .envelope-overlay {
+            animation: none;
+        }
+    </style>
 </body>
 
 </html>
