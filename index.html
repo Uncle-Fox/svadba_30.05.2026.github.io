@@ -95,7 +95,7 @@
             }
         }
 
-        .envelope {
+        /*.envelope {
             position: relative;
             width: 400px;
             height: auto;
@@ -103,6 +103,17 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
             animation: float 3s ease-in-out infinite;
+        } */
+
+        .envelope {
+            position: relative;
+            width: 400px;
+            height: auto;
+            border-radius: 20px;
+            /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2); */
+            transition: transform 0.3s ease;
+            /* animation: float 3s ease-in-out infinite; */
+            /* ← удалено */
         }
 
         @keyframes float {
@@ -156,6 +167,18 @@
             }
         }
 
+        /* .envelope__body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        } */
+
         .envelope__body {
             position: relative;
             width: 100%;
@@ -166,6 +189,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            animation: float 3s ease-in-out infinite;
+            /* ← анимация здесь */
         }
 
         .envelope__image {
@@ -1053,7 +1078,7 @@
 
             <!-- КОНВЕРТ -->
             <div class="envelope">
-                <div class="envelope__flap"></div>
+                <!-- <div class="envelope__flap"></div> -->
                 <div class="envelope__body">
                     <!-- ВАША КАРТИНКА КОНВЕРТА -->
                     <img src="./pic/envelope.png" alt="Конверт" class="envelope__image">
