@@ -448,7 +448,7 @@
             }
         }
 
-        @media (max-width: 767px) {
+        /* @media (max-width: 767px) {
             .details-grid {
                 grid-template-columns: 1fr;
             }
@@ -456,7 +456,24 @@
             .details-grid .detail-card:nth-child(4) {
                 margin-top: 0;
             }
+        }*/
+
+        @media (max-width: 767px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .details-grid .detail-card {
+                margin-bottom: 15px;
+            }
+
+            .details-grid .detail-card:nth-child(4) {
+                margin-top: 0;
+            }
         }
+
+
 
         .detail-card {
             background: white;
@@ -1130,156 +1147,263 @@
         <section class="section" style="background-color: #f9f3ea;">
             <div class="container">
                 <h2 class="section-title">Дата и место свадьбы</h2>
+
+                <!-- Важное напоминание сверху -->
+                <div
+                    style="background: #d4af37; color: white; padding: 15px; border-radius: 50px; max-width: 500px; margin: -20px auto 30px; font-weight: 500;">
+                    <i class="fas fa-star"></i> Просим прибыть за 15 минут до начала
+                </div>
+
                 <div class="details-grid">
                     <div class="detail-card">
                         <i class="fas fa-calendar-alt"></i>
-                        <h3>Дата</h3>
+                        <h3>Дата и время</h3>
                         <p><strong>30 мая 2026</strong></p>
-                        <p>Сбор гостей в 14:30</p>
-                        <p>Церемония в 14:45</p>
+                        <p style="font-size: 1.3rem; color: #d4af37; margin: 10px 0;">14:45</p>
+                        <p>Сбор гостей: 14:30</p>
+                        <p>Церемония: 14:45</p>
+                        <p>Банкет: 16:00</p>
+                        <p style="margin-top: 15px; font-size: 0.95rem;">
+                            <i class="fas fa-clock" style="color: #d4af37;"></i>
+                            Окончание вечера: 23:00
+                        </p>
                     </div>
+
                     <div class="detail-card">
                         <i class="fas fa-map-marker-alt"></i>
                         <h3>ЗАГС</h3>
                         <p><strong>Дворец бракосочетания</strong></p>
-                        <p> ул. Свердлова, 5</p>
-                        <p>г. Ярославль</p>
+                        <p style="font-size: 1rem;">г. Ярославль, ул. Свердлова, 5</p>
+
+                        <!-- Яндекс карты ссылка -->
+                        <a href="https://yandex.ru/maps/?text=Ярославль,+ул.+Свердлова,+5" target="_blank"
+                            style="display: block; color: #2c3e50; font-size: 0.9rem; margin-top: 5px;">
+                            <i class="fas fa-external-link-alt"></i> Открыть в Картах
+                        </a>
+
+                        <!-- Парковка -->
+                        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e8d9c5;">
+                            <i class="fas fa-parking" style="color: #d4af37;"></i>
+                            <p style="font-size: 0.95rem;">Парковка: есть бесплатная парковка на территории ЗАГСа</p>
+                        </div>
                     </div>
+
                     <div class="detail-card">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-utensils"></i>
                         <h3>Ресторан</h3>
                         <p><strong>Отель Royal Hotel Spa & Wellness</strong></p>
-                        <p>Которосльная наб, 55</p>
-                        <p>г. Ярославль</p>
+                        <p style="font-size: 1rem;">г. Ярославль, Которосльная наб, 55</p>
+
+                        <a href="https://yandex.ru/maps/?text=Ярославль,+Которосльная+наб,+55" target="_blank"
+                            style="display: block; color: #2c3e50; font-size: 0.9rem; margin-top: 5px;">
+                            <i class="fas fa-external-link-alt"></i> Открыть в Картах
+                        </a>
+
+                        <!-- Парковка -->
+                        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e8d9c5;">
+                            <i class="fas fa-parking" style="color: #d4af37;"></i>
+                            <p style="font-size: 0.95rem;">Парковка: охраняемая парковка отеля (бесплатно)</p>
+                        </div>
                     </div>
+
                     <div class="detail-card">
                         <i class="fas fa-glass-cheers"></i>
-                        <h3>Программа</h3>
-                        <p>Свадебная церемония во Дворце бракосочетания</p>
-                        <p>Фуршет в ресторане</p>
-                        <p>Банкет и танцы</p>
+                        <h3>Программа дня</h3>
+                        <div style="text-align: left; padding: 0 10px;">
+                            <p style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <i class="fas fa-circle" style="color: #d4af37; font-size: 0.5rem;"></i>
+                                <span>14:30 — Сбор гостей в ЗАГСе</span>
+                            </p>
+                            <p style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <i class="fas fa-circle" style="color: #d4af37; font-size: 0.5rem;"></i>
+                                <span>14:45 — Торжественная регистрация</span>
+                            </p>
+                            <p style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <i class="fas fa-circle" style="color: #d4af37; font-size: 0.5rem;"></i>
+                                <span>15:30 — Фотосессия</span>
+                            </p>
+                            <p style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <i class="fas fa-circle" style="color: #d4af37; font-size: 0.5rem;"></i>
+                                <span>16:00 — Фуршет в ресторане</span>
+                            </p>
+                            <p style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <i class="fas fa-circle" style="color: #d4af37; font-size: 0.5rem;"></i>
+                                <span>17:00 — Банкет</span>
+                            </p>
+                            <p style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <i class="fas fa-circle" style="color: #d4af37; font-size: 0.5rem;"></i>
+                                <span>19:00 — Танцевальная программа</span>
+                            </p>
+                            <p style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <i class="fas fa-circle" style="color: #d4af37; font-size: 0.5rem;"></i>
+                                <span>23:00 — Завершение вечера</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Карта -->
-                <div class="map-container">
-                    <iframe src="https://api-maps.yandex.ru/frame/v1/-/CPapbT6g" width="100%" height="100%"
-                        frameborder="0" style="border:0; border-radius: 20px;" allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- Таймер -->
-        <section class="timer-section">
-            <div class="container">
-                <h2 style="font-size: 2.5rem; color: white;">До свадьбы осталось:</h2>
-                <div class="timer" id="timer">
-                    <div class="timer-item">
-                        <span id="days">00</span>
-                        <p>Дней</p>
-                    </div>
-                    <div class="timer-item">
-                        <span id="hours">00</span>
-                        <p>Часов</p>
-                    </div>
-                    <div class="timer-item">
-                        <span id="minutes">00</span>
-                        <p>Минут</p>
-                    </div>
-                    <div class="timer-item">
-                        <span id="seconds">00</span>
-                        <p>Секунд</p>
+                <!-- Дресс-код (можно добавить отдельной карточкой или вставить в грид) -->
+                <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <div
+                        style="background: white; padding: 20px 30px; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #f0e9e0;">
+                        <i class="fas fa-tshirt" style="color: #d4af37; margin-right: 10px;"></i>
+                        <span><strong>Дресс-код:</strong> Нарядный (женщинам в платьях, мужчинам в костюмах)</span>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Рассадка гостей -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Рассадка гостей</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 30px;">Как мы разместимся за праздничным столом</p>
-                <p style="font-size: 1.2rem; margin-bottom: 30px;">Пока раздел на обновлении, поэтому вот вам красивая
-                    картинка</p>
-                <!-- Картинка с рассадкой -->
-                <div class="seating-container">
-                    <img src="./pic/wedding_table.jpg" alt="Рассадка гостей" class="seating-image">
-                    <p class="seating-caption">Нажмите на картинку, чтобы увеличить</p>
-                </div>
-            </div>
-        </section>
+                <!-- Улучшенная карта с двумя точками -->
+                <div style="margin-top: 50px;">
+                    <h3 style="font-size: 1.8rem; font-family: 'Cormorant Garamond', serif; margin-bottom: 20px;">Как
+                        добраться</h3>
 
-        <!-- Интерактивный тест "Кто ты на свадьбе?" -->
-        <section class="section quiz-section" id="weddingQuiz">
-            <div class="container">
-                <h2 class="section-title">Кто ты на нашей свадьбе?</h2>
-                <p class="quiz-subtitle">Пройди короткий тест и узнай свою роль на празднике!</p>
-
-                <div class="quiz-container" id="quizContainer">
-                    <!-- Вопросы будут подставляться через JavaScript -->
-                </div>
-
-                <div class="quiz-result" id="quizResult" style="display: none;">
-                    <div class="result-card">
-                        <div class="result-icon" id="resultIcon">🎉</div>
-                        <h3 class="result-title" id="resultTitle"></h3>
-                        <p class="result-description" id="resultDescription"></p>
-                        <button class="btn restart-btn" id="restartQuiz">Пройти заново</button>
+                    <!-- Маршрут между точками -->
+                    <div
+                        style="display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-map-pin" style="color: #d4af37; font-size: 1.5rem;"></i>
+                            <p><strong>ЗАГС</strong><br><small>ул. Свердлова, 5</small></p>
+                        </div>
+                        <i class="fas fa-arrow-right" style="color: #d4af37; font-size: 1.5rem;"></i>
+                        <div style="text-align: center;">
+                            <i class="fas fa-map-pin" style="color: #d4af37; font-size: 1.5rem;"></i>
+                            <p><strong>Ресторан</strong><br><small>Которосльная наб, 55</small></p>
+                        </div>
+                        <i class="fas fa-car" style="color: #d4af37; font-size: 1.5rem;"></i>
+                        <div style="text-align: center; background: #e8f4f8; padding: 10px 20px; border-radius: 50px;">
+                            <small>≈ 15 минут на заказанном автобусе</small>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Форма подтверждения (RSVP) - Яндекс.Формы -->
-        <section class="section rsvp-section" id="rsvp">
-            <div class="container">
-                <h2 class="section-title">Подтвердите присутствие</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 20px;">Пожалуйста, ответьте до 1 мая 2026</p>
-                <div class="rsvp-form yandex-form-container">
-                    <!-- ВСТАВЬТЕ СЮДА ВАШ КОД С ЯНДЕКС.ФОРМЫ -->
-                    <script src="https://forms.yandex.ru/_static/embed.js"></script>
-                    <iframe src="https://forms.yandex.ru/u/699c96405056903ad26571a7/?iframe=1" frameborder="0"
-                        name="ya-form-699c96405056903ad26571a7" width="100%" height="600"
-                        style="border: none; border-radius: 15px; min-height: 500px;"></iframe>
-                    <p style="margin-top: 20px; font-size: 0.9rem; color: #2c3e50;">
-                        <i class="fas fa-lock" style="color: #d4af37;"></i>
-                        Ваши ответы будут отправлены в Telegram организаторам
-                    </p>
-                    <a href="https://forms.yandex.ru/u/699c96405056903ad26571a7/" target="_blank" class="btn">
-                        Перейти к форме подтверждения
-                    </a>
+                    <!-- Карта (оставляем как есть, но можно добавить вторую карту) -->
+                    <div class="map-container">
+                        <iframe src="https://api-maps.yandex.ru/frame/v1/-/CPapbT6g" width="100%" height="100%"
+                            frameborder="0" style="border:0; border-radius: 20px;" allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <!-- Кнопки такси 
+            <div style="display: flex; justify-content: center; gap: 15px; margin-top: 25px; flex-wrap: wrap;">
+                <a href="https://taxi.yandex.ru/" target="_blank" style="background: #2c3e50; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none;">
+                    <i class="fab fa-yandex"></i> Яндекс.Такси
+                </a>
+                <a href="https://city-mobil.ru/" target="_blank" style="background: #2c3e50; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none;">
+                    <i class="fas fa-taxi"></i> Citymobil
+                </a>-->
                 </div>
             </div>
-        </section>
+    </div>
+    </section>
 
-        <!-- Подарки -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Подарки</h2>
-                <p style="font-size: 1.2rem;">Для нас главное — ваше присутствие, но если вы хотите сделать подарок,
-                    мы
-                    будем рады помощи в создании нашего семейного уюта.</p>
-                <div style="margin-top: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                    <div style="background: #f9f3ea; padding: 20px 30px; border-radius: 50px;">
-                        <i class="fas fa-home" style="color: #d4af37; margin-right: 10px;"></i>
-                        <span>Бытовая техника</span>
-                    </div>
-                    <div style="background: #f9f3ea; padding: 20px 30px; border-radius: 50px;">
-                        <i class="fas fa-coins" style="color: #d4af37; margin-right: 10px;"></i>
-                        <span>Денежный конверт</span>
-                    </div>
+    <!-- Таймер -->
+    <section class="timer-section">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; color: white;">До свадьбы осталось:</h2>
+            <div class="timer" id="timer">
+                <div class="timer-item">
+                    <span id="days">00</span>
+                    <p>Дней</p>
+                </div>
+                <div class="timer-item">
+                    <span id="hours">00</span>
+                    <p>Часов</p>
+                </div>
+                <div class="timer-item">
+                    <span id="minutes">00</span>
+                    <p>Минут</p>
+                </div>
+                <div class="timer-item">
+                    <span id="seconds">00</span>
+                    <p>Секунд</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Подвал -->
-        <footer>
-            <div class="container">
-                <p><i class="fas fa-heart"></i> Анастасия & Константин <i class="fas fa-heart"></i></p>
-                <p style="margin-top: 10px; font-size: 0.9rem;">С нетерпением ждем встречи!</p>
+    <!-- Рассадка гостей -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Рассадка гостей</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">Как мы разместимся за праздничным столом</p>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">Пока раздел на обновлении, поэтому вот вам красивая
+                картинка</p>
+            <!-- Картинка с рассадкой -->
+            <div class="seating-container">
+                <img src="./pic/wedding_table.jpg" alt="Рассадка гостей" class="seating-image">
+                <p class="seating-caption">Нажмите на картинку, чтобы увеличить</p>
             </div>
-        </footer>
+        </div>
+    </section>
+
+    <!-- Интерактивный тест "Кто ты на свадьбе?" -->
+    <section class="section quiz-section" id="weddingQuiz">
+        <div class="container">
+            <h2 class="section-title">Кто ты на нашей свадьбе?</h2>
+            <p class="quiz-subtitle">Пройди короткий тест и узнай свою роль на празднике!</p>
+
+            <div class="quiz-container" id="quizContainer">
+                <!-- Вопросы будут подставляться через JavaScript -->
+            </div>
+
+            <div class="quiz-result" id="quizResult" style="display: none;">
+                <div class="result-card">
+                    <div class="result-icon" id="resultIcon">🎉</div>
+                    <h3 class="result-title" id="resultTitle"></h3>
+                    <p class="result-description" id="resultDescription"></p>
+                    <button class="btn restart-btn" id="restartQuiz">Пройти заново</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма подтверждения (RSVP) - Яндекс.Формы -->
+    <section class="section rsvp-section" id="rsvp">
+        <div class="container">
+            <h2 class="section-title">Подтвердите присутствие</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Пожалуйста, ответьте до 1 мая 2026</p>
+            <div class="rsvp-form yandex-form-container">
+                <!-- ВСТАВЬТЕ СЮДА ВАШ КОД С ЯНДЕКС.ФОРМЫ -->
+                <script src="https://forms.yandex.ru/_static/embed.js"></script>
+                <iframe src="https://forms.yandex.ru/u/699c96405056903ad26571a7/?iframe=1" frameborder="0"
+                    name="ya-form-699c96405056903ad26571a7" width="100%" height="600"
+                    style="border: none; border-radius: 15px; min-height: 500px;"></iframe>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #2c3e50;">
+                    <i class="fas fa-lock" style="color: #d4af37;"></i>
+                    Ваши ответы будут отправлены в Telegram организаторам
+                </p>
+                <a href="https://forms.yandex.ru/u/699c96405056903ad26571a7/" target="_blank" class="btn">
+                    Перейти к форме подтверждения
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подарки -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Подарки</h2>
+            <p style="font-size: 1.2rem;">Для нас главное — ваше присутствие, но если вы хотите сделать подарок,
+                мы
+                будем рады помощи в создании нашего семейного уюта.</p>
+            <div style="margin-top: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <div style="background: #f9f3ea; padding: 20px 30px; border-radius: 50px;">
+                    <i class="fas fa-home" style="color: #d4af37; margin-right: 10px;"></i>
+                    <span>Бытовая техника</span>
+                </div>
+                <div style="background: #f9f3ea; padding: 20px 30px; border-radius: 50px;">
+                    <i class="fas fa-coins" style="color: #d4af37; margin-right: 10px;"></i>
+                    <span>Денежный конверт</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <p><i class="fas fa-heart"></i> Анастасия & Константин <i class="fas fa-heart"></i></p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">С нетерпением ждем встречи!</p>
+        </div>
+    </footer>
     </div>
 
     <!-- Скрипты -->
