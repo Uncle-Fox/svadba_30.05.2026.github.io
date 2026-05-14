@@ -1081,6 +1081,57 @@
                 height: 700px;
             }
         }
+        /* Новый стиль для блока вишлиста */
+.wishlist-block {
+    background: linear-gradient(135deg, #fff5e6 0%, #fefbf7 100%);
+    border-radius: 48px;
+    padding: 50px 30px;
+    margin-top: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    border: 2px solid #d4af37;
+    text-align: center;
+}
+.wishlist-icon {
+    font-size: 4rem;
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+.wishlist-title {
+    font-size: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+.wishlist-desc {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 25px;
+    color: #4a4a4a;
+    line-height: 1.5;
+}
+.wishlist-btn {
+    background: #2c3e50;
+    color: white;
+    border: 2px solid #2c3e50;
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    border-radius: 60px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-weight: 500;
+}
+.wishlist-btn:hover {
+    background: #d4af37;
+    border-color: #d4af37;
+    color: #2c3e50;
+}
+@media (max-width: 768px) {
+    .wishlist-block { padding: 35px 20px; }
+    .wishlist-title { font-size: 1.8rem; }
+}
     </style>
 </head>
 
@@ -1978,8 +2029,22 @@
                 </div>
             </div>
         </div>
+        <!-- НОВЫЙ БЛОК: вишлист -->
+        <div class="wishlist-block">
+            <div class="wishlist-icon"><i class="fas fa-gift"></i></div>
+            <h3 class="wishlist-title">Наш вишлист</h3>
+            <p class="wishlist-desc">
+                Мы с огромной теплотой относимся к вашему желанию порадовать нас. 
+                Для нас важнее всего ваше присутствие и любовь, но если вы хотите 
+                подарить что-то особенное — мы подготовили вишлист с идеями, которые 
+                помогут создать наш семейный уют и запоминающиеся моменты.
+            </p>
+            <a href="https://followish.io/mywishlist/zvup7spgdqiapb" class="wishlist-btn" target="_blank" id="wishlistLink">
+                <i class="fas fa-external-link-alt"></i> Перейти к вишлисту
+            </a>
+        </div>
+    </div>
     </section>
-
     <!-- Подвал -->
     <footer>
         <div class="container">
