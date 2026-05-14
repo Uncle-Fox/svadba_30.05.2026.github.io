@@ -1319,13 +1319,15 @@
     <section class="section" id="seating-section">
         <div class="container">
             <h2 class="section-title">Рассадка гостей</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px; color: #5a5a5a;">Введите своё имя, чтобы найти своё место</p>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; color: #5a5a5a;">Введите своё имя, чтобы найти своё место
+            </p>
 
             <!-- Поиск по имени -->
             <div class="seating-search-wrap">
                 <div class="seating-search-box">
                     <i class="fas fa-search seating-search-icon"></i>
-                    <input type="text" id="seatSearchInput" class="seating-search-input" placeholder="Введите ваше имя…" autocomplete="off">
+                    <input type="text" id="seatSearchInput" class="seating-search-input" placeholder="Введите ваше имя…"
+                        autocomplete="off">
                     <button class="seating-search-clear" id="seatSearchClear" title="Очистить">×</button>
                 </div>
                 <div id="seatSearchHint" class="seating-search-hint"></div>
@@ -1333,82 +1335,135 @@
 
             <!-- Схема зала -->
             <div class="seating-hall-wrap">
-                <svg id="hallSvg" viewBox="0 0 820 520" xmlns="http://www.w3.org/2000/svg" class="hall-svg">
+                <svg id="hallSvg" viewBox="0 0 820 450" xmlns="http://www.w3.org/2000/svg" class="hall-svg">
                     <!-- Зал -->
-                    <rect x="10" y="10" width="800" height="500" rx="30" ry="30" fill="#fefbf7" stroke="#e8d9c5" stroke-width="2.5"/>
+                    <rect x="10" y="10" width="800" height="430" rx="28" ry="28" fill="#fefbf7" stroke="#e8d9c5"
+                        stroke-width="2.5" />
 
-                    <!-- Танцпол -->
-                    <rect x="280" y="190" width="260" height="160" rx="16" ry="16" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="6,4"/>
-                    <text x="410" y="278" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#d4af37" opacity="0.8">Танцпол</text>
+                    <!-- Стол молодожёнов -->
+                    <rect x="290" y="20" width="240" height="54" rx="14" ry="14" fill="#2c3e50" />
+                    <text x="410" y="44" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14"
+                        fill="#d4af37" font-weight="600">Анастасия &amp; Константин</text>
+                    <text x="410" y="62" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="9"
+                        fill="rgba(255,255,255,0.55)" letter-spacing="2">МОЛОДОЖЁНЫ</text>
 
-                    <!-- Сцена / стол молодожёнов -->
-                    <rect x="310" y="30" width="200" height="60" rx="14" ry="14" fill="#2c3e50"/>
-                    <text x="410" y="57" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#d4af37" font-weight="600">Анастасия &amp; Константин</text>
-                    <text x="410" y="76" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)" letter-spacing="2">МОЛОДОЖЁНЫ</text>
+                    <!-- Стрелка вниз от стола молодожёнов -->
+                    <line x1="410" y1="74" x2="410" y2="128" stroke="#d4af37" stroke-width="1" stroke-dasharray="4,3"
+                        opacity="0.4" />
 
-                    <!-- Стрелка от стола молодожёнов вниз -->
-                    <line x1="410" y1="90" x2="410" y2="186" stroke="#d4af37" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+                    <!-- Танцпол — поднят -->
+                    <rect x="278" y="132" width="264" height="150" rx="16" ry="16" fill="#f9f3ea" stroke="#d4af37"
+                        stroke-width="1.5" stroke-dasharray="6,4" />
+                    <text x="410" y="214" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15"
+                        fill="#d4af37" opacity="0.8">Танцпол</text>
 
-                    <!-- СТОЛ 1 — левый верхний -->
+                    <!-- СТОЛ 1 — левый верхний, 8 мест -->
                     <g id="table-group-1" class="table-group" data-table="1">
-                        <circle cx="150" cy="140" r="60" fill="white" stroke="#e8d9c5" stroke-width="2" class="table-circle"/>
-                        <text x="150" y="136" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="13" fill="#2c3e50" font-weight="600" class="table-label">Стол 1</text>
-                        <!-- Места вокруг стола 1 (8 мест) -->
-                        <circle class="seat" data-seat="1-1" cx="150" cy="72" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="1-2" cx="193" cy="85" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="1-3" cx="213" cy="130" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="1-4" cx="197" cy="175" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="1-5" cx="150" cy="208" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="1-6" cx="103" cy="175" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="1-7" cx="87" cy="130" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="1-8" cx="107" cy="85" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
+                        <circle cx="155" cy="145" r="48" fill="white" stroke="#e8d9c5" stroke-width="2"
+                            class="table-circle" />
+                        <text x="155" y="141" text-anchor="middle" font-family="Cormorant Garamond, serif"
+                            font-size="12" fill="#2c3e50" font-weight="600" class="table-label">Стол 1</text>
+                        <text x="155" y="156" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8"
+                            fill="#aaa">8 гостей</text>
+                        <circle class="seat" data-seat="1-1" cx="183" cy="207" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="1-2" cx="153" cy="213" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="1-3" cx="124" cy="206" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="1-4" cx="101" cy="186" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="1-5" cx="88" cy="158" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="1-6" cx="89" cy="128" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="1-7" cx="103" cy="101" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="1-8" cx="127" cy="83" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
                     </g>
 
-                    <!-- СТОЛ 2 — правый верхний -->
+                    <!-- СТОЛ 2 — правый верхний, 9 мест -->
                     <g id="table-group-2" class="table-group" data-table="2">
-                        <circle cx="670" cy="140" r="60" fill="white" stroke="#e8d9c5" stroke-width="2" class="table-circle"/>
-                        <text x="670" y="136" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="13" fill="#2c3e50" font-weight="600" class="table-label">Стол 2</text>
-                        <circle class="seat" data-seat="2-1" cx="670" cy="72" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="2-2" cx="713" cy="85" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="2-3" cx="733" cy="130" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="2-4" cx="717" cy="175" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="2-5" cx="670" cy="208" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="2-6" cx="623" cy="175" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="2-7" cx="607" cy="130" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="2-8" cx="627" cy="85" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
+                        <circle cx="660" cy="145" r="48" fill="white" stroke="#e8d9c5" stroke-width="2"
+                            class="table-circle" />
+                        <text x="660" y="141" text-anchor="middle" font-family="Cormorant Garamond, serif"
+                            font-size="12" fill="#2c3e50" font-weight="600" class="table-label">Стол 2</text>
+                        <text x="660" y="156" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8"
+                            fill="#aaa">9 гостей</text>
+                        <circle class="seat" data-seat="2-1" cx="688" cy="83" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="2-2" cx="710" cy="99" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="2-3" cx="724" cy="121" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="2-4" cx="728" cy="148" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="2-5" cx="722" cy="173" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="2-6" cx="706" cy="195" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="2-7" cx="684" cy="209" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="2-8" cx="657" cy="213" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="2-9" cx="632" cy="207" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
                     </g>
 
-                    <!-- СТОЛ 3 — левый нижний -->
+                    <!-- СТОЛ 3 — левый нижний, 9 мест -->
                     <g id="table-group-3" class="table-group" data-table="3">
-                        <circle cx="150" cy="390" r="60" fill="white" stroke="#e8d9c5" stroke-width="2" class="table-circle"/>
-                        <text x="150" y="386" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="13" fill="#2c3e50" font-weight="600" class="table-label">Стол 3</text>
-                        <circle class="seat" data-seat="3-1" cx="150" cy="322" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="3-2" cx="193" cy="335" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="3-3" cx="213" cy="380" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="3-4" cx="197" cy="425" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="3-5" cx="150" cy="458" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="3-6" cx="103" cy="425" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="3-7" cx="87" cy="380" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="3-8" cx="107" cy="335" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
+                        <circle cx="155" cy="345" r="48" fill="white" stroke="#e8d9c5" stroke-width="2"
+                            class="table-circle" />
+                        <text x="155" y="341" text-anchor="middle" font-family="Cormorant Garamond, serif"
+                            font-size="12" fill="#2c3e50" font-weight="600" class="table-label">Стол 3</text>
+                        <text x="155" y="356" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8"
+                            fill="#aaa">9 гостей</text>
+                        <circle class="seat" data-seat="3-1" cx="208" cy="388" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="3-2" cx="187" cy="405" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="3-3" cx="162" cy="413" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="3-4" cx="136" cy="410" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="3-5" cx="112" cy="398" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="3-6" cx="95" cy="377" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="3-7" cx="87" cy="352" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="3-8" cx="90" cy="326" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="3-9" cx="102" cy="302" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
                     </g>
 
-                    <!-- СТОЛ 4 — правый нижний -->
+                    <!-- СТОЛ 4 — правый нижний, 8 мест -->
                     <g id="table-group-4" class="table-group" data-table="4">
-                        <circle cx="670" cy="390" r="60" fill="white" stroke="#e8d9c5" stroke-width="2" class="table-circle"/>
-                        <text x="670" y="386" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="13" fill="#2c3e50" font-weight="600" class="table-label">Стол 4</text>
-                        <circle class="seat" data-seat="4-1" cx="670" cy="322" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="4-2" cx="713" cy="335" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="4-3" cx="733" cy="380" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="4-4" cx="717" cy="425" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="4-5" cx="670" cy="458" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="4-6" cx="623" cy="425" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="4-7" cx="607" cy="380" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
-                        <circle class="seat" data-seat="4-8" cx="627" cy="335" r="11" fill="#f9f3ea" stroke="#d4af37" stroke-width="1.5"/>
+                        <circle cx="660" cy="345" r="48" fill="white" stroke="#e8d9c5" stroke-width="2"
+                            class="table-circle" />
+                        <text x="660" y="341" text-anchor="middle" font-family="Cormorant Garamond, serif"
+                            font-size="12" fill="#2c3e50" font-weight="600" class="table-label">Стол 4</text>
+                        <text x="660" y="356" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8"
+                            fill="#aaa">8 гостей</text>
+                        <circle class="seat" data-seat="4-1" cx="713" cy="303" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="4-2" cx="726" cy="330" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="4-3" cx="726" cy="360" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="4-4" cx="713" cy="388" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="4-5" cx="689" cy="406" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="4-6" cx="660" cy="413" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="4-7" cx="630" cy="406" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
+                        <circle class="seat" data-seat="4-8" cx="607" cy="387" r="11" fill="#f9f3ea" stroke="#d4af37"
+                            stroke-width="1.5" />
                     </g>
-
-                    <!-- Вход -->
-                    <rect x="360" y="468" width="100" height="30" rx="8" fill="#e8d9c5"/>
-                    <text x="410" y="488" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="11" fill="#2c3e50" letter-spacing="1.5">ВХОД</text>
                 </svg>
             </div>
 
@@ -1428,17 +1483,21 @@
 
     <style>
         /* ========== РАССАДКА ГОСТЕЙ ========== */
-        #seating-section { background: #fefbf7; }
+        #seating-section {
+            background: #fefbf7;
+        }
 
         .seating-search-wrap {
             max-width: 480px;
             margin: 0 auto 36px;
         }
+
         .seating-search-box {
             position: relative;
             display: flex;
             align-items: center;
         }
+
         .seating-search-icon {
             position: absolute;
             left: 18px;
@@ -1446,6 +1505,7 @@
             font-size: 1rem;
             pointer-events: none;
         }
+
         .seating-search-input {
             width: 100%;
             padding: 15px 44px 15px 46px;
@@ -1458,10 +1518,12 @@
             transition: border-color 0.3s, box-shadow 0.3s;
             outline: none;
         }
+
         .seating-search-input:focus {
             border-color: #d4af37;
-            box-shadow: 0 0 0 4px rgba(212,175,55,0.12);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.12);
         }
+
         .seating-search-clear {
             position: absolute;
             right: 16px;
@@ -1474,7 +1536,11 @@
             padding: 0 4px;
             display: none;
         }
-        .seating-search-clear:hover { color: #d4af37; }
+
+        .seating-search-clear:hover {
+            color: #d4af37;
+        }
+
         .seating-search-hint {
             min-height: 28px;
             margin-top: 10px;
@@ -1484,9 +1550,18 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.15rem;
         }
-        .hint-found { color: #2c3e50; }
-        .hint-found strong { color: #d4af37; }
-        .hint-notfound { color: #c0392b; }
+
+        .hint-found {
+            color: #2c3e50;
+        }
+
+        .hint-found strong {
+            color: #d4af37;
+        }
+
+        .hint-notfound {
+            color: #c0392b;
+        }
 
         /* SVG зал */
         .seating-hall-wrap {
@@ -1494,10 +1569,11 @@
             margin: 0 auto 24px;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.07);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
             border: 2px solid #e8d9c5;
             background: #fefbf7;
         }
+
         .hall-svg {
             width: 100%;
             height: auto;
@@ -1509,12 +1585,14 @@
             transition: fill 0.25s, stroke 0.25s, r 0.25s;
             cursor: default;
         }
+
         .seat.seat--found {
             fill: #d4af37 !important;
             stroke: #b8961e !important;
             r: 13;
-            filter: drop-shadow(0 0 6px rgba(212,175,55,0.7));
+            filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.7));
         }
+
         .seat.seat--table {
             fill: #fdf3d0 !important;
             stroke: #d4af37 !important;
@@ -1524,6 +1602,7 @@
         .table-group .table-circle {
             transition: fill 0.3s, stroke 0.3s;
         }
+
         .table-group.table--found .table-circle {
             fill: #fffbe8 !important;
             stroke: #d4af37 !important;
@@ -1538,6 +1617,7 @@
             flex-wrap: wrap;
             margin-bottom: 40px;
         }
+
         .legend-item {
             display: flex;
             align-items: center;
@@ -1545,6 +1625,7 @@
             font-size: 0.95rem;
             color: #5a5a5a;
         }
+
         .legend-dot {
             width: 16px;
             height: 16px;
@@ -1552,30 +1633,43 @@
             display: inline-block;
             border: 2px solid #d4af37;
         }
-        .legend-dot--normal { background: #f9f3ea; }
-        .legend-dot--found  { background: #d4af37; border-color: #b8961e; }
-        .legend-dot--table  { background: #fdf3d0; }
+
+        .legend-dot--normal {
+            background: #f9f3ea;
+        }
+
+        .legend-dot--found {
+            background: #d4af37;
+            border-color: #b8961e;
+        }
+
+        .legend-dot--table {
+            background: #fdf3d0;
+        }
 
         /* Список столов */
         .seating-tables-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            max-width: 900px;
+            max-width: 860px;
             margin: 0 auto;
         }
+
         .seating-table-card {
             background: white;
             border-radius: 20px;
             padding: 28px 24px;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.05);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
             border: 2px solid #f0e9e0;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
+
         .seating-table-card.card--found {
             border-color: #d4af37;
-            box-shadow: 0 8px 32px rgba(212,175,55,0.2);
+            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.2);
         }
+
         .seating-table-card h4 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.4rem;
@@ -1584,11 +1678,13 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #f0e9e0;
         }
+
         .seating-table-card ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
+
         .seating-table-card ul li {
             padding: 7px 0;
             font-size: 0.95rem;
@@ -1599,16 +1695,22 @@
             gap: 8px;
             transition: background 0.2s;
         }
-        .seating-table-card ul li:last-child { border-bottom: none; }
+
+        .seating-table-card ul li:last-child {
+            border-bottom: none;
+        }
+
         .seating-table-card ul li.guest--found {
             color: #2c3e50;
             font-weight: 600;
         }
+
         .seating-table-card ul li.guest--found::before {
             content: '✦';
             color: #d4af37;
             font-size: 0.8rem;
         }
+
         .seating-table-card ul li:not(.guest--found)::before {
             content: '·';
             color: #d4af37;
@@ -1618,191 +1720,201 @@
         }
 
         @media (max-width: 600px) {
-            .hall-svg { min-height: 220px; }
-            .seating-tables-list { grid-template-columns: 1fr; }
-            .seating-legend { gap: 16px; }
+            .hall-svg {
+                min-height: 220px;
+            }
+
+            .seating-tables-list {
+                grid-template-columns: 1fr;
+            }
+
+            .seating-legend {
+                gap: 16px;
+            }
         }
     </style>
 
     <script>
-    (function() {
-        /* ============================================================
-           ДАННЫЕ РАССАДКИ — ЗАМЕНИТЕ НА РЕАЛЬНЫЕ ИМЕНА
-           Структура: tableId (совпадает с data-table в SVG) → массив гостей
-           seatId: "tableId-номерМеста" (1-1, 1-2, ... 1-8)
-           ============================================================ */
-        const SEATING_DATA = {
-            1: {
-                name: "Стол 1",
-                guests: [
-                    { name: "Иванов Михаил",    seat: "1-1" },
-                    { name: "Иванова Елена",    seat: "1-2" },
-                    { name: "Петров Алексей",   seat: "1-3" },
-                    { name: "Петрова Ирина",    seat: "1-4" },
-                    { name: "Сидоров Дмитрий",  seat: "1-5" },
-                    { name: "Сидорова Мария",   seat: "1-6" },
-                    { name: "Козлов Андрей",    seat: "1-7" },
-                    { name: "Козлова Наталья",  seat: "1-8" },
-                ]
-            },
-            2: {
-                name: "Стол 2",
-                guests: [
-                    { name: "Смирнов Павел",    seat: "2-1" },
-                    { name: "Смирнова Анна",    seat: "2-2" },
-                    { name: "Новиков Сергей",   seat: "2-3" },
-                    { name: "Новикова Татьяна", seat: "2-4" },
-                    { name: "Морозов Игорь",    seat: "2-5" },
-                    { name: "Морозова Светлана",seat: "2-6" },
-                    { name: "Волков Николай",   seat: "2-7" },
-                    { name: "Волкова Ольга",    seat: "2-8" },
-                ]
-            },
-            3: {
-                name: "Стол 3",
-                guests: [
-                    { name: "Лебедев Виктор",   seat: "3-1" },
-                    { name: "Лебедева Юлия",    seat: "3-2" },
-                    { name: "Соколов Роман",    seat: "3-3" },
-                    { name: "Соколова Ксения",  seat: "3-4" },
-                    { name: "Попов Антон",       seat: "3-5" },
-                    { name: "Попова Валерия",   seat: "3-6" },
-                    { name: "Зайцев Евгений",   seat: "3-7" },
-                    { name: "Зайцева Екатерина",seat: "3-8" },
-                ]
-            },
-            4: {
-                name: "Стол 4",
-                guests: [
-                    { name: "Семёнов Кирилл",   seat: "4-1" },
-                    { name: "Семёнова Алина",   seat: "4-2" },
-                    { name: "Орлов Максим",     seat: "4-3" },
-                    { name: "Орлова Вероника",  seat: "4-4" },
-                    { name: "Яковлев Денис",    seat: "4-5" },
-                    { name: "Яковлева Дарья",   seat: "4-6" },
-                    { name: "Фёдоров Илья",     seat: "4-7" },
-                    { name: "Фёдорова Полина",  seat: "4-8" },
-                ]
-            }
-        };
+        (function () {
+            /* ============================================================
+               ДАННЫЕ РАССАДКИ — ЗАМЕНИТЕ НА РЕАЛЬНЫЕ ИМЕНА
+               Структура: tableId (совпадает с data-table в SVG) → массив гостей
+               seatId: "tableId-номерМеста" (1-1, 1-2, ... 1-8)
+               ============================================================ */
+            const SEATING_DATA = {
+                1: {
+                    name: "Стол 1. Родственники жениха",
+                    guests: [
+                        { name: "Королев Николай", seat: "1-1" },
+                        { name: "Королева Ольга", seat: "1-2" },
+                        { name: "Доготарь Олеся", seat: "1-3" },
+                        { name: "Доготарь Сергей", seat: "1-4" },
+                        { name: "Дмитриев Евгений", seat: "1-5" },
+                        { name: "Дмитриева Ирина", seat: "1-6" },
+                        { name: "Дмитриев Владислав", seat: "1-7" },
+                        { name: "Дмитриева Татьяна", seat: "1-8" }
+                    ]
+                },
+                2: {
+                    name: "Стол 2",
+                    guests: [
+                        { name: "Туманова Юлия", seat: "2-1" },
+                        { name: "Юлин Сергей", seat: "2-2" },
+                        { name: "Чепурной Андрей", seat: "2-3" },
+                        { name: "Молоткова Дарья", seat: "2-4" },
+                        { name: "Мария (подруга Юлии)", seat: "2-5" },
+                        { name: "Ирина (соседка)", seat: "2-6" },
+                        { name: "Солдатов Евгений", seat: "2-7" },
+                        { name: "Солдатов Сергей", seat: "2-8" },
+                        { name: "Солдатова Ирина", seat: "2-9" }
+                    ]
+                },
+                3: {
+                    name: "Стол 3",
+                    guests: [
+                        { name: "Сигорина Полина", seat: "3-1" },
+                        { name: "Варвара Сеничева", seat: "3-2" },
+                        { name: "Шаталов Дмитрий", seat: "3-3" },
+                        { name: "Антон П.", seat: "3-4" },
+                        { name: "Дарья Гасилова", seat: "3-5" },
+                        { name: "Артем Гасилов", seat: "3-6" },
+                        { name: "Мироша Гасилов", seat: "3-7" },
+                        { name: "Екатерина (с работы)", seat: "3-8" },
+                        { name: "Рома Катин", seat: "3-9" }
+                    ]
+                },
+                4: {
+                    name: "Стол 4",
+                    guests: [
+                        { name: "Николаенко Елена", seat: "4-1" },
+                        { name: "Шпынева Анастасия", seat: "4-2" },
+                        { name: "Тетерева Алина", seat: "4-3" },
+                        { name: "Федяева Арина", seat: "4-4" },
+                        { name: "Кулагина Виктория", seat: "4-5" },
+                        { name: "Александра", seat: "4-6" },
+                        { name: "Петрова Яна", seat: "4-7" },
+                        { name: "Жердева Геля", seat: "4-8" }
+                    ]
+                }
+            };
 
-        /* --- рендер карточек столов --- */
-        function buildTableCards() {
-            const wrap = document.getElementById('seatingTablesList');
-            if (!wrap) return;
-            wrap.innerHTML = '';
-            for (const [tid, table] of Object.entries(SEATING_DATA)) {
-                const card = document.createElement('div');
-                card.className = 'seating-table-card';
-                card.id = 'card-table-' + tid;
-                let liItems = table.guests.map(g =>
-                    `<li id="guest-li-${g.seat}">${g.name}</li>`
-                ).join('');
-                card.innerHTML = `<h4>🌸 ${table.name}</h4><ul>${liItems}</ul>`;
-                wrap.appendChild(card);
-            }
-        }
-
-        /* --- поиск --- */
-        function normalize(s) {
-            return s.toLowerCase().replace(/ё/g,'е').trim();
-        }
-
-        function findGuest(query) {
-            if (!query) return null;
-            const q = normalize(query);
-            for (const [tid, table] of Object.entries(SEATING_DATA)) {
-                for (const g of table.guests) {
-                    if (normalize(g.name).includes(q)) {
-                        return { tableId: tid, guest: g, tableName: table.name };
-                    }
+            /* --- рендер карточек столов --- */
+            function buildTableCards() {
+                const wrap = document.getElementById('seatingTablesList');
+                if (!wrap) return;
+                wrap.innerHTML = '';
+                for (const [tid, table] of Object.entries(SEATING_DATA)) {
+                    const card = document.createElement('div');
+                    card.className = 'seating-table-card';
+                    card.id = 'card-table-' + tid;
+                    let liItems = table.guests.map(g =>
+                        `<li id="guest-li-${g.seat}">${g.name}</li>`
+                    ).join('');
+                    card.innerHTML = `<h4>🌸 ${table.name}</h4><ul>${liItems}</ul>`;
+                    wrap.appendChild(card);
                 }
             }
-            return null;
-        }
 
-        function clearHighlights() {
-            document.querySelectorAll('.seat').forEach(el => {
-                el.classList.remove('seat--found','seat--table');
-            });
-            document.querySelectorAll('.table-group').forEach(el => {
-                el.classList.remove('table--found');
-            });
-            document.querySelectorAll('.seating-table-card').forEach(el => {
-                el.classList.remove('card--found');
-            });
-            document.querySelectorAll('.seating-table-card ul li').forEach(el => {
-                el.classList.remove('guest--found');
-            });
-        }
-
-        function highlightResult(result) {
-            clearHighlights();
-            if (!result) return;
-
-            const { tableId, guest } = result;
-
-            // Подсветить все места стола
-            document.querySelectorAll(`.seat[data-seat^="${tableId}-"]`).forEach(el => {
-                el.classList.add('seat--table');
-            });
-            // Подсветить конкретное место
-            const seatEl = document.querySelector(`.seat[data-seat="${guest.seat}"]`);
-            if (seatEl) {
-                seatEl.classList.remove('seat--table');
-                seatEl.classList.add('seat--found');
+            /* --- поиск --- */
+            function normalize(s) {
+                return s.toLowerCase().replace(/ё/g, 'е').trim();
             }
-            // Подсветить стол на схеме
-            const tableGroup = document.getElementById('table-group-' + tableId);
-            if (tableGroup) tableGroup.classList.add('table--found');
 
-            // Подсветить карточку и строку гостя
-            const card = document.getElementById('card-table-' + tableId);
-            if (card) {
-                card.classList.add('card--found');
-                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            function findGuest(query) {
+                if (!query) return null;
+                const q = normalize(query);
+                for (const [tid, table] of Object.entries(SEATING_DATA)) {
+                    for (const g of table.guests) {
+                        if (normalize(g.name).includes(q)) {
+                            return { tableId: tid, guest: g, tableName: table.name };
+                        }
+                    }
+                }
+                return null;
             }
-            const guestLi = document.getElementById('guest-li-' + guest.seat);
-            if (guestLi) guestLi.classList.add('guest--found');
-        }
 
-        function onSearch(val) {
-            const hint = document.getElementById('seatSearchHint');
-            const clearBtn = document.getElementById('seatSearchClear');
-            clearBtn.style.display = val ? 'block' : 'none';
-
-            if (!val.trim()) {
-                clearHighlights();
-                hint.innerHTML = '';
-                return;
-            }
-            const result = findGuest(val);
-            if (result) {
-                highlightResult(result);
-                hint.innerHTML = `<span class="hint-found">Нашли! <strong>${result.guest.name}</strong> — ${result.tableName} 🌸</span>`;
-            } else {
-                clearHighlights();
-                hint.innerHTML = `<span class="hint-notfound">Гость не найден. Проверьте написание имени.</span>`;
-            }
-        }
-
-        /* --- инициализация --- */
-        document.addEventListener('DOMContentLoaded', function() {
-            buildTableCards();
-            const input = document.getElementById('seatSearchInput');
-            const clearBtn = document.getElementById('seatSearchClear');
-            if (input) {
-                input.addEventListener('input', function() { onSearch(this.value); });
-            }
-            if (clearBtn) {
-                clearBtn.addEventListener('click', function() {
-                    input.value = '';
-                    onSearch('');
-                    input.focus();
+            function clearHighlights() {
+                document.querySelectorAll('.seat').forEach(el => {
+                    el.classList.remove('seat--found', 'seat--table');
+                });
+                document.querySelectorAll('.table-group').forEach(el => {
+                    el.classList.remove('table--found');
+                });
+                document.querySelectorAll('.seating-table-card').forEach(el => {
+                    el.classList.remove('card--found');
+                });
+                document.querySelectorAll('.seating-table-card ul li').forEach(el => {
+                    el.classList.remove('guest--found');
                 });
             }
-        });
-    })();
+
+            function highlightResult(result) {
+                clearHighlights();
+                if (!result) return;
+
+                const { tableId, guest } = result;
+
+                // Подсветить все места стола
+                document.querySelectorAll(`.seat[data-seat^="${tableId}-"]`).forEach(el => {
+                    el.classList.add('seat--table');
+                });
+                // Подсветить конкретное место
+                const seatEl = document.querySelector(`.seat[data-seat="${guest.seat}"]`);
+                if (seatEl) {
+                    seatEl.classList.remove('seat--table');
+                    seatEl.classList.add('seat--found');
+                }
+                // Подсветить стол на схеме
+                const tableGroup = document.getElementById('table-group-' + tableId);
+                if (tableGroup) tableGroup.classList.add('table--found');
+
+                // Подсветить карточку и строку гостя
+                const card = document.getElementById('card-table-' + tableId);
+                if (card) {
+                    card.classList.add('card--found');
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+                const guestLi = document.getElementById('guest-li-' + guest.seat);
+                if (guestLi) guestLi.classList.add('guest--found');
+            }
+
+            function onSearch(val) {
+                const hint = document.getElementById('seatSearchHint');
+                const clearBtn = document.getElementById('seatSearchClear');
+                clearBtn.style.display = val ? 'block' : 'none';
+
+                if (!val.trim()) {
+                    clearHighlights();
+                    hint.innerHTML = '';
+                    return;
+                }
+                const result = findGuest(val);
+                if (result) {
+                    highlightResult(result);
+                    hint.innerHTML = `<span class="hint-found">Нашли! <strong>${result.guest.name}</strong> — ${result.tableName} 🌸</span>`;
+                } else {
+                    clearHighlights();
+                    hint.innerHTML = `<span class="hint-notfound">Гость не найден. Проверьте написание имени.</span>`;
+                }
+            }
+
+            /* --- инициализация --- */
+            document.addEventListener('DOMContentLoaded', function () {
+                buildTableCards();
+                const input = document.getElementById('seatSearchInput');
+                const clearBtn = document.getElementById('seatSearchClear');
+                if (input) {
+                    input.addEventListener('input', function () { onSearch(this.value); });
+                }
+                if (clearBtn) {
+                    clearBtn.addEventListener('click', function () {
+                        input.value = '';
+                        onSearch('');
+                        input.focus();
+                    });
+                }
+            });
+        })();
     </script>
 
     <!-- Интерактивный тест "Кто ты на свадьбе?" -->
